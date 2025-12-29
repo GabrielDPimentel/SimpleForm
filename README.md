@@ -1,130 +1,23 @@
-Cadastro de Aprovados em Concursos Públicos
+# Cadastro de Aprovados
 
-Aplicação desenvolvida como teste prático para vaga de desenvolvedor.
+Aplicação simples desenvolvida como teste técnico para cadastro de aprovados em concursos públicos, com envio de imagem e persistência em banco de dados MySQL.
 
-O sistema permite o cadastro de pessoas aprovadas em concursos públicos, incluindo envio de imagem, com persistência em banco de dados MySQL.
+## Tecnologias
+Java (Spring Boot), MySQL, HTML, CSS, JavaScript e Ngrok.
 
-Tecnologias Utilizadas
+## Funcionalidade
+Cadastro de nome, e-mail, telefone e concursos aprovados, com upload de imagem e salvamento dos dados no banco.
 
-Java 21
+## Execução
+Criar o banco de dados com o comando CREATE DATABASE aprovados_db;. 
+Configurar o arquivo application.properties com a URL jdbc:mysql://localhost:3306/aprovados_db, usuário root, senha correspondente e spring.jpa.hibernate.ddl-auto=update. 
+Executar o projeto com mvn spring-boot:run e acessar pelo navegador em http://localhost:8080.
 
-Spring Boot
+## API
+Endpoint POST /aprovados recebendo os campos nome, email, telefone, concursos e imagem via multipart/form-data.
 
-Spring Data JPA
+## Acesso Externo
+Com a aplicação rodando, executar ngrok http 8080 e utilizar o link gerado para acesso externo.
 
-MySQL
-
-HTML5
-
-CSS3
-
-JavaScript (Fetch API)
-
-Ngrok
-
-Funcionalidades
-
-Cadastro de aprovados em concursos públicos
-
-Upload de imagem
-
-Persistência dos dados no MySQL
-
-Frontend integrado ao backend (Spring Boot)
-
-API REST simples para envio dos dados
-
-Estrutura do Projeto
-backend/
-├── src/
-│   └── main/
-│       ├── java/
-│       │   └── com.exemplo.aprovados
-│       │       ├── controller
-│       │       ├── model
-│       │       ├── repository
-│       │       └── service
-│       └── resources/
-│           ├── static/
-│           │   ├── index.html
-│           │   ├── script.js
-│           │   └── style.css
-│           └── application.properties
-├── pom.xml
-└── README.md
-
-Como Executar o Projeto
-1. Criar o banco de dados
-
-No MySQL Workbench, execute:
-
-CREATE DATABASE aprovados_db;
-
-2. Configurar o banco no Spring Boot
-
-No arquivo application.properties:
-
-spring.datasource.url=jdbc:mysql://localhost:3306/aprovados_db
-spring.datasource.username=root
-spring.datasource.password=SUA_SENHA
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-
-spring.servlet.multipart.max-file-size=10MB
-spring.servlet.multipart.max-request-size=10MB
-
-3. Executar a aplicação
-
-Rodar pela IDE (IntelliJ / Eclipse) ou via terminal:
-
-mvn spring-boot:run
-
-
-A aplicação ficará disponível em:
-
-http://localhost:8080
-
-4. Acessar o Frontend
-
-O frontend é servido diretamente pelo backend Spring Boot:
-
-http://localhost:8080/
-
-Endpoint da API
-Cadastro de aprovado
-
-POST /aprovados
-
-Campos enviados via multipart/form-data:
-
-nome
-
-email
-
-telefone
-
-concursos
-
-imagem
-
-Expondo a Aplicação com Ngrok
-
-Com o backend rodando localmente:
-
-ngrok http 8080
-
-
-O link gerado pelo ngrok permite acesso externo à aplicação.
-
-Exemplo:
-
-https://xxxxxx.ngrok-free.app
-
-Observações
-
-O frontend consome a API via JavaScript utilizando Fetch API
-
-O banco de dados é atualizado automaticamente via JPA (ddl-auto=update)
-
-Projeto desenvolvido com foco em simplicidade e funcionamento
+## Observação
+Projeto desenvolvido como teste prático para processo seletivo.
